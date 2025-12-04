@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration</title>
+
+    <!-- Bootstrap CSS -->
+    <link 
+        rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    >
+</head>
+
+<body class="container">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="home.html">Web Portal</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="register.html">Register</a></li>
+                <li><a href="todo.html">To-Do</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Registration Panel -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Registration</h3>
+        </div>
+
+        <div class="panel-body">
+            <form action="todo.html" method="get">
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email <span class="text-danger">*</span></label>
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        id="email" 
+                        name="email" 
+                        required
+                    >
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password <span class="text-danger">*</span></label>
+                    <input 
+                        type="password" 
+                        class="form-control" 
+                        id="password" 
+                        name="password" 
+                        required
+                    >
+                </div>
+
+                <!-- Sex -->
+                <div class="form-group">
+                    <label for="sex">Sex</label>
+                    <select 
+                        id="sex" 
+                        name="sex" 
+                        class="form-control"
+                    >
+                        <option value="">-- Select --</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <!-- Age -->
+                <div class="form-group">
+                    <label for="age">Age (18–99)</label>
+                    <input 
+                        type="number" 
+                        id="age" 
+                        name="age" 
+                        class="form-control" 
+                        min="18" 
+                        max="99"
+                    >
+                </div>
+
+                <!-- Neptun Code -->
+                <div class="form-group">
+                    <label for="neptun">Neptun Code</label>
+                    <input 
+                        type="text" 
+                        id="neptun" 
+                        name="neptun" 
+                        class="form-control"
+                        pattern="[A-Za-z][A-Za-z0-9]{5}"
+                        title="First character must be a letter, followed by 5 alphanumeric characters."
+                    >
+                </div>
+
+                <!-- Introduction -->
+                <div class="form-group">
+                    <label for="intro">Introduction</label>
+                    <textarea 
+                        id="intro" 
+                        name="intro" 
+                        class="form-control" 
+                        rows="5"
+                    ></textarea>
+                </div>
+
+                <!-- Accept Terms -->
+                <div class="checkbox">
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            name="accept" 
+                            required
+                        >
+                        I accept the terms and conditions
+                    </label>
+                </div>
+
+                <!-- Buttons -->
+                <div class="text-right">
+                    <a 
+                        href="home.html" 
+                        class="btn btn-danger"
+                    >
+                        Cancel
+                    </a>
+
+                    <button 
+                        type="submit" 
+                        class="btn btn-primary"
+                    >
+                        Submit
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
