@@ -20,7 +20,32 @@ form.onsubmit = function(event) {
   }
 };
 
+function updateBadges() {
+    var tabs = document.getElementsByClassName("todo-tab");
+
+    // Count todos by state
+    var counts = {
+        all: todos.length,
+        active: todos.filter(t => t.state === "active").length,
+        inactive: todos.filter(t => t.state === "inactive").length,
+        done: todos.filter(t => t.state === "done").length
+    };
+
+    // Update each tab's badge
+    Array.prototype.forEach.call(tabs, function (tab) {
+        var tabName = tab.getAttribute("data-tab-name");
+        var badge = tab.querySelector(".badge");
+
+        if (badge) {
+            badge.textContent = counts[tabName] || 0;
+        }
+    });
+}
+
+
 var buttons = [
+  { action: "up", icon: "chevron-up" },
+  { action: "down", icon: "chevron-down" },
   { action: "done", icon: "ok" },
   { action: "active", icon: "plus" },
   { action: "inactive", icon: "minus" },
@@ -29,6 +54,9 @@ var buttons = [
 function renderTodos() {
   var todoList = document.getElementById("todo-list");
   todoList.innerHTML = "";
+
+  updateBadges();
+
   todos
     .filter(function(todo) {
       return todo.state === currentTab || currentTab === "all";
@@ -55,25 +83,32 @@ function renderTodos() {
           btn.disabled = true;
         }
 
-        if (button.action === "remove") {
+      if (button.action === "up") {
+          btn.title = "Move Up";
+          btn.onclick = function() {
+              moveTodo(todo, -1);
+          };
+      } else if (button.action === "down") {
+          btn.title = "Move Down";
+          btn.onclick = function() {
+              moveTodo(todo, 1);
+          };
+      } else if (button.action === "remove") {
           btn.title = "Remove";
           btn.onclick = function() {
-            if (
-              confirm(
-                "Are you sure you want to delete the item titled " + todo.name
-              )
-            ) {
-              todos.splice(todos.indexOf(todo), 1);
-              renderTodos();
-            }
+              if (confirm("Are you sure you want to delete the item titled " + todo.name)) {
+                  todos.splice(todos.indexOf(todo), 1);
+                  renderTodos();
+              }
           };
-        } else {
+      } else {
           btn.title = "Mark as " + button.action;
           btn.onclick = function() {
-            todo.state = button.action;
-            renderTodos();
+              todo.state = button.action;
+              renderTodos();
           };
-        }
+      }
+
       });
 
       div1.appendChild(div2);
@@ -82,6 +117,33 @@ function renderTodos() {
       todoList.appendChild(div1);
     });
 }
+
+function moveTodo(todo, direction) {
+    // Get filtered list of todos based on current tab
+    var filtered = todos.filter(function(t) {
+        return t.state === currentTab || currentTab === "all";
+    });
+
+    // Find index in filtered list
+    var index = filtered.indexOf(todo);
+    if (index === -1) return;
+
+    var newIndex = index + direction;
+    if (newIndex < 0 || newIndex >= filtered.length) return;
+
+    // Swap todos in the main todos array
+    var todoA = filtered[index];
+    var todoB = filtered[newIndex];
+
+    var idxA = todos.indexOf(todoA);
+    var idxB = todos.indexOf(todoB);
+
+    todos[idxA] = todoB;
+    todos[idxB] = todoA;
+
+    renderTodos();
+}
+
 
 renderTodos();
 
