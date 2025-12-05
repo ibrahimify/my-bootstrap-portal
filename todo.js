@@ -15,6 +15,7 @@ form.onsubmit = function(event) {
   event.preventDefault();
   if (input.value && input.value.length) {
     todos.push(new Todo(input.value, "active"));
+    saveTodos();
     input.value = "";
     renderTodos();
   }
@@ -98,6 +99,7 @@ function renderTodos() {
           btn.onclick = function() {
               if (confirm("Are you sure you want to delete the item titled " + todo.name)) {
                   todos.splice(todos.indexOf(todo), 1);
+                  saveTodos();
                   renderTodos();
               }
           };
@@ -105,6 +107,7 @@ function renderTodos() {
           btn.title = "Mark as " + button.action;
           btn.onclick = function() {
               todo.state = button.action;
+              saveTodos();
               renderTodos();
           };
       }
@@ -141,10 +144,26 @@ function moveTodo(todo, direction) {
     todos[idxA] = todoB;
     todos[idxB] = todoA;
 
+    saveTodos();
     renderTodos();
 }
 
+function saveTodos() {
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
 
+function loadTodos() {
+    var stored = localStorage.getItem("todos");
+    if (stored) {
+        // Convert stored array objects back into Todo instances
+        var parsed = JSON.parse(stored);
+        todos = parsed.map(function(t) {
+            return new Todo(t.name, t.state);
+        });
+    }
+}
+
+loadTodos();
 renderTodos();
 
 function selectTab(element) {
