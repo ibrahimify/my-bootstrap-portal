@@ -12,25 +12,88 @@
         rel="stylesheet" 
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     >
+
+    <style>
+    .custom-navbar {
+        border: none;
+        padding: 10px 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+        font-weight: 600;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 15px;
+        padding: 15px 20px;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+    color: #ccc !important;
+    background: transparent !important;
+    }
+
+    .navbar-inverse .navbar-nav > li > a:hover {
+        color: #fff !important;
+        font-weight: bold;
+    }
+
+    .navbar-inverse .navbar-nav > .active > a,
+    .navbar-inverse .navbar-nav > .active > a:focus,
+    .navbar-inverse .navbar-nav > .active > a:hover {
+        color: #fff !important;
+        font-weight: bold;
+        background: transparent !important;
+    }
+
+
+    @media (max-width: 767px) {
+        .navbar-nav > li > a {
+            padding: 10px 15px;
+        }
+    }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body class="container">
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
+    <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar">
+    <div class="container-fluid">
 
-            <div class="navbar-header">
-                <a class="navbar-brand" href="home.html">Web Portal</a>
-            </div>
+        <!-- Brand + Collapsible Button -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
+            <a class="navbar-brand" href="home.html">My Portal</a>
+        </div>
+
+        <!-- Collapsible Menu -->
+        <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="home.html">Home</a></li>
                 <li class="active"><a href="register.html">Register</a></li>
                 <li><a href="todo.html">To-Do</a></li>
-            </ul>
 
+            </ul>
         </div>
-    </nav>
+
+    </div>
+</nav>
+
+<!-- Push body content down because navbar is fixed-top -->
+<div style="margin-top: 90px;"></div>
 
     <!-- Registration Panel -->
     <div class="panel panel-default">
@@ -150,4 +213,18 @@
     </div>
 
 </body>
+
+<footer class="footer text-center">
+    <p>
+        &copy; <span id="year"></span> Ibrahim • 
+        <a href="https://linkedin.com/in/ibrahimify" target="_blank">LinkedIn</a> •
+        <a href="https://github.com/ibrahimify" target="_blank">GitHub</a> •
+        <a href="https://ibrahimify.tech" target="_blank">Website</a>
+    </p>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </html>
