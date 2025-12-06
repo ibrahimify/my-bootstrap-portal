@@ -89,6 +89,8 @@ Bootstrap 3.3.7 is used throughout the project.
 ├── README.md
 ├── /.vscode
 │      └── launch.json
+├── /Documentation
+│      └── Todo_Documentation.pdf
 └── /screenshots
        ├── home.png
        ├── register.png
