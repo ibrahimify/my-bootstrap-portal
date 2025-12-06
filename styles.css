@@ -1,0 +1,119 @@
+/* ============================
+   GLOBAL SETTINGS
+   ============================ */
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Generic spacing utilities */
+.mt-90 {
+    margin-top: 90px;
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Center panel titles */
+.panel-title {
+    font-weight: 600;
+}
+
+/* ============================
+   NAVBAR
+   ============================ */
+.custom-navbar {
+    border: none;
+    padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* Navbar link styling */
+.navbar-inverse .navbar-nav > li > a {
+    color: #ccc !important;
+    background: transparent !important;
+}
+
+/* Hover effect */
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+/* Active page highlight */
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .active > a:hover {
+    color: #fff !important;
+    font-weight: bold;
+    background: transparent !important;
+}
+
+/* Mobile navbar padding */
+@media (max-width: 767px) {
+    .navbar-nav > li > a {
+        padding: 10px 15px;
+    }
+}
+
+/* ============================
+   FORMS
+   ============================ */
+input.form-control, 
+select.form-control, 
+textarea.form-control {
+    border-radius: 4px;
+}
+
+.input-group-addon {
+    background: #eee;
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn-primary {
+    font-weight: 600;
+}
+
+.btn-danger {
+    font-weight: 600;
+}
+
+/* ============================
+   TO-DO PAGE SPECIFIC
+   ============================ */
+.todo-tab a {
+    font-weight: 600;
+}
+
+.todo-tab.active a {
+    font-weight: bold;
+    color: #fff !important;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+.footer {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    color: #555;
+}
+
+.footer a {
+    color: #337ab7;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

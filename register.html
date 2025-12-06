@@ -8,67 +8,17 @@
     <title>Registration</title>
 
     <!-- Bootstrap CSS -->
-    <link 
-        rel="stylesheet" 
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 
-    <style>
-    .custom-navbar {
-        border: none;
-        padding: 10px 0;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    }
-
-    .navbar-brand {
-        font-size: 20px;
-        font-weight: 600;
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-
-    .navbar-nav > li > a {
-        font-size: 15px;
-        padding: 15px 20px;
-    }
-
-    .navbar-inverse .navbar-nav > li > a {
-    color: #ccc !important;
-    background: transparent !important;
-    }
-
-    .navbar-inverse .navbar-nav > li > a:hover {
-        color: #fff !important;
-        font-weight: bold;
-    }
-
-    .navbar-inverse .navbar-nav > .active > a,
-    .navbar-inverse .navbar-nav > .active > a:focus,
-    .navbar-inverse .navbar-nav > .active > a:hover {
-        color: #fff !important;
-        font-weight: bold;
-        background: transparent !important;
-    }
-
-
-    @media (max-width: 767px) {
-        .navbar-nav > li > a {
-            padding: 10px 15px;
-        }
-    }
-    </style>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body class="container">
+<body>
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar">
     <div class="container-fluid">
 
-        <!-- Brand + Collapsible Button -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
                 <span class="icon-bar"></span>
@@ -79,152 +29,167 @@
             <a class="navbar-brand" href="home.html">My Portal</a>
         </div>
 
-        <!-- Collapsible Menu -->
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="home.html">Home</a></li>
                 <li class="active"><a href="register.html">Register</a></li>
                 <li><a href="todo.html">To-Do</a></li>
-
             </ul>
         </div>
 
     </div>
-</nav>
+    </nav>
 
-<!-- Push body content down because navbar is fixed-top -->
-<div style="margin-top: 90px;"></div>
+    <!-- Push content -->
+    <div style="margin-top: 90px;"></div>
 
-    <!-- Registration Panel -->
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Registration</h3>
+    <div class="container">
+
+        <!-- Centered Form -->
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Registration</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <form action="todo.html" method="get">
+
+                            <!-- Email -->
+                            <label for="email">Email *</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-envelope"></i>
+                                </span>
+                                <input 
+                                    type="email" 
+                                    class="form-control" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="Enter your email"
+                                    required
+                                >
+                            </div>
+
+                            <!-- Password -->
+                            <label for="password">Password *</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-lock"></i>
+                                </span>
+                                <input 
+                                    type="password" 
+                                    class="form-control" 
+                                    id="password" 
+                                    name="password"
+                                    placeholder="Create a password"
+                                    required
+                                >
+                            </div>
+
+                            <!-- Row: Sex + Age -->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="sex">Sex</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </span>
+                                        <select id="sex" name="sex" class="form-control">
+                                            <option value="">-- Select --</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="age">Age (18–99)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </span>
+                                        <input 
+                                            type="number" 
+                                            id="age" 
+                                            name="age" 
+                                            class="form-control" 
+                                            min="18" 
+                                            max="99"
+                                            placeholder="Age"
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Neptun Code -->
+                            <label for="neptun">Neptun Code</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-education"></i>
+                                </span>
+                                <input 
+                                    type="text" 
+                                    id="neptun" 
+                                    name="neptun" 
+                                    class="form-control"
+                                    pattern="[A-Za-z][A-Za-z0-9]{5}"
+                                    title="Starts with a letter followed by 5 letters/numbers"
+                                    placeholder="Example: OZLVV3"
+                                >
+                            </div>
+
+                            <!-- Introduction -->
+                            <label for="intro">Introduction</label>
+                            <textarea 
+                                id="intro" 
+                                name="intro" 
+                                class="form-control" 
+                                rows="5"
+                                placeholder="Write a short introduction (optional)"
+                            ></textarea>
+
+                            <!-- Terms -->
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="accept" required>
+                                    I accept the terms and conditions
+                                </label>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="text-right">
+                                <a href="home.html" class="btn btn-danger">Cancel</a>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <div class="panel-body">
-            <form action="todo.html" method="get">
-
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="email">Email <span class="text-danger">*</span></label>
-                    <input 
-                        type="email" 
-                        class="form-control" 
-                        id="email" 
-                        name="email" 
-                        required
-                    >
-                </div>
-
-                <!-- Password -->
-                <div class="form-group">
-                    <label for="password">Password <span class="text-danger">*</span></label>
-                    <input 
-                        type="password" 
-                        class="form-control" 
-                        id="password" 
-                        name="password" 
-                        required
-                    >
-                </div>
-
-                <!-- Sex -->
-                <div class="form-group">
-                    <label for="sex">Sex</label>
-                    <select 
-                        id="sex" 
-                        name="sex" 
-                        class="form-control"
-                    >
-                        <option value="">-- Select --</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </div>
-
-                <!-- Age -->
-                <div class="form-group">
-                    <label for="age">Age (18–99)</label>
-                    <input 
-                        type="number" 
-                        id="age" 
-                        name="age" 
-                        class="form-control" 
-                        min="18" 
-                        max="99"
-                    >
-                </div>
-
-                <!-- Neptun Code -->
-                <div class="form-group">
-                    <label for="neptun">Neptun Code</label>
-                    <input 
-                        type="text" 
-                        id="neptun" 
-                        name="neptun" 
-                        class="form-control"
-                        pattern="[A-Za-z][A-Za-z0-9]{5}"
-                        title="First character must be a letter, followed by 5 alphanumeric characters."
-                    >
-                </div>
-
-                <!-- Introduction -->
-                <div class="form-group">
-                    <label for="intro">Introduction</label>
-                    <textarea 
-                        id="intro" 
-                        name="intro" 
-                        class="form-control" 
-                        rows="5"
-                    ></textarea>
-                </div>
-
-                <!-- Accept Terms -->
-                <div class="checkbox">
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            name="accept" 
-                            required
-                        >
-                        I accept the terms and conditions
-                    </label>
-                </div>
-
-                <!-- Buttons -->
-                <div class="text-right">
-                    <a 
-                        href="home.html" 
-                        class="btn btn-danger"
-                    >
-                        Cancel
-                    </a>
-
-                    <button 
-                        type="submit" 
-                        class="btn btn-primary"
-                    >
-                        Submit
-                    </button>
-                </div>
-
-            </form>
-        </div>
     </div>
 
+    <footer class="footer text-center">
+        <p>
+            &copy; <span id="year"></span> Ibrahim • 
+            <a href="https://linkedin.com/in/ibrahimify" target="_blank">LinkedIn</a> •
+            <a href="https://github.com/ibrahimify" target="_blank">GitHub</a> •
+            <a href="https://ibrahimify.tech" target="_blank">Website</a>
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
-
-<footer class="footer text-center">
-    <p>
-        &copy; <span id="year"></span> Ibrahim • 
-        <a href="https://linkedin.com/in/ibrahimify" target="_blank">LinkedIn</a> •
-        <a href="https://github.com/ibrahimify" target="_blank">GitHub</a> •
-        <a href="https://ibrahimify.tech" target="_blank">Website</a>
-    </p>
-</footer>
-
-<script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
 </html>

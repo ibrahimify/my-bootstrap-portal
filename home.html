@@ -12,55 +12,9 @@
         rel="stylesheet" 
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     >
-    <style>
-    .custom-navbar {
-        border: none;
-        padding: 10px 0;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    }
-
-    .navbar-brand {
-        font-size: 20px;
-        font-weight: 600;
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-
-    .navbar-nav > li > a {
-        font-size: 15px;
-        padding: 15px 20px;
-    }
-
-    .navbar-inverse .navbar-nav > li > a {
-    color: #ccc !important;
-    background: transparent !important;
-    }
-
-    .navbar-inverse .navbar-nav > li > a:hover {
-        color: #fff !important;
-        font-weight: bold;
-    }
-
-    .navbar-inverse .navbar-nav > .active > a,
-    .navbar-inverse .navbar-nav > .active > a:focus,
-    .navbar-inverse .navbar-nav > .active > a:hover {
-        color: #fff !important;
-        font-weight: bold;
-        background: transparent !important;
-    }
-
-
-    @media (max-width: 767px) {
-        .navbar-nav > li > a {
-            padding: 10px 15px;
-        }
-    }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 
 </head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <body class="container">
 
@@ -102,19 +56,24 @@
         <p class="lead">Welcome to the assignment web portal. Use the menu above to navigate.</p>
     </header>
 
+
+
+    <footer class="footer text-center">
+        <p>
+            &copy; <span id="year"></span> Ibrahim • 
+            <a href="https://linkedin.com/in/ibrahimify" target="_blank">LinkedIn</a> •
+            <a href="https://github.com/ibrahimify" target="_blank">GitHub</a> •
+            <a href="https://ibrahimify.tech" target="_blank">Website</a>
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
-
-<footer class="footer text-center">
-    <p>
-        &copy; <span id="year"></span> Ibrahim • 
-        <a href="https://linkedin.com/in/ibrahimify" target="_blank">LinkedIn</a> •
-        <a href="https://github.com/ibrahimify" target="_blank">GitHub</a> •
-        <a href="https://ibrahimify.tech" target="_blank">Website</a>
-    </p>
-</footer>
-
-<script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
 </html>
